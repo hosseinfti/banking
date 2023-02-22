@@ -28,7 +28,7 @@ function App() {
   }, []);
   return (
     <div style={{ padding: "12px" }}>
-      {data && data.length ? (
+      {data?.length ? (
         data.map((data) => {
           return (
             <Card
@@ -47,7 +47,8 @@ function App() {
       ) : loading ? (
         <Card loading={loading} />
       ) : (
-        <button onClick={reload}>refresh</button>
+        !loading &&
+        data?.length === 0 && <button onClick={reload}>refresh</button>
       )}
     </div>
   );
