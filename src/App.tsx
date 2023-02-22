@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "./components/Card";
+import Carousel from "./components/Carousel";
 import { BankCardType } from "./config/types";
 import Mock from "./mock";
 
@@ -29,21 +30,7 @@ function App() {
   return (
     <div style={{ padding: "12px" }}>
       {data?.length ? (
-        data.map((data) => {
-          return (
-            <Card
-              title={data.title}
-              description={data.description}
-              detail={
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  {data.detail}
-                </div>
-              }
-              key={data.id}
-              image={<img src={data.image} alt="card_image"></img>}
-            ></Card>
-          );
-        })
+        <Carousel data={data} />
       ) : loading ? (
         <Card loading={loading} />
       ) : (

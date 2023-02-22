@@ -2,3 +2,9 @@ body {
   margin: 0;
   padding: 0;
 }
+.app {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 1rem;
+}
+
