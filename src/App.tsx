@@ -45,7 +45,7 @@ function App() {
           );
         })
       ) : loading ? (
-        <Card loading="dsd" />
+        <Card loading={loading} />
       ) : (
         <button onClick={reload}>refresh</button>
       )}

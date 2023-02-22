@@ -1,5 +1,7 @@
+import { BankCardType } from "../config/types";
+
 const Mock = () =>
-  new Promise((resolve, reject) => {
+  new Promise<BankCardType[]>((resolve, reject) => {
     setTimeout(() => {
       const random = Math.floor(Math.random() * 5);
       if (random > 1)

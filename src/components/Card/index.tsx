@@ -2,7 +2,7 @@ import React from "react";
 import { cardComponentType } from "../../config/types";
 import style from "./style.module.scss";
 
-const EmptyCard = (isLoading: boolean) => {
+const EmptyCard = ({ isLoading }: { isLoading: boolean }) => {
   return (
     <div className={style.Box}>
       <div
@@ -38,7 +38,7 @@ const Card = ({
   detail,
   className = "",
   loading,
-  onClick
+  onClick,
 }: cardComponentType) => {
   if (loading) {
     return <EmptyCard isLoading={loading} />;
