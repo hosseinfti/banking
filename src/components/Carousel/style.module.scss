@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1px;
+  // gap: 10px;
 }
 
 .carousel_data {
@@ -16,6 +16,16 @@
   justify-content: center;
 }
 .carousel_button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #999d99;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.carousel_button_dark {
   margin: 0.5rem;
   padding: 0.5rem 1rem;
   font-size: 1rem;
@@ -38,7 +48,10 @@
   min-width: 300px;
   transition: transform 0.3s ease-in-out;
   transform: translateX(0, 0, 0);
+  margin-inline: -10px;
+  box-shadow: 1px 0px 4px 0px #333;
 }
+
 .ImageContainer {
   min-height: 64px;
   display: flex;
@@ -65,4 +78,8 @@
 
 .Detail {
   margin: 5px;
+}
+.dark {
+  background-color: #333;
+  color: #fff;
 }

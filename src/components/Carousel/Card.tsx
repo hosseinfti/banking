@@ -6,17 +6,19 @@ interface CardProps {
   data: cardComponentType[];
   number: number;
   handleNumber: (num: number) => number;
+  isActive: boolean;
 }
 
 const Card = (props: CardProps, ref: ForwardedRef<HTMLDivElement>) => {
-  const { number, data, handleNumber } = props;
+  const { number, data, handleNumber, isActive } = props;
   return (
     <div
       ref={ref}
-      className={`${data[handleNumber(number)]?.className} ${style.Box}`}
+      className={`${data[handleNumber(number)]?.className} ${style.Box} ${
+        isActive ? `active` : ""
+      }`}
       onClick={data[handleNumber(number)]?.onClick}
     >
-      <div>{handleNumber(number)}</div>
       <div className={style.AlignedFlex}>
         <div className={style.ImageContainer}>
           <img src={`${data[handleNumber(number)]?.image}`} alt="" />

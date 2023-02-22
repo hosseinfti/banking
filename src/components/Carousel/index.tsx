@@ -5,24 +5,19 @@ import style from "./style.module.scss";
 
 interface CarouselProps {
   data: cardComponentType[];
+  isDarkTheme: boolean;
 }
 
 const boxRef = createRef<HTMLInputElement>();
-const Carousel = ({ data }: CarouselProps) => {
+const Carousel = ({ data, isDarkTheme }: CarouselProps) => {
   const [currentCard, setCurrentCard] = useState<number>(0);
 
   const handleNextClick = () => {
     setCurrentCard((currentCard + 1) % data.length);
-    // if (boxRef.current) {
-    //   boxRef.current.style.transform = "translateX(-100px)";
-    // }
   };
 
   const handlePrevClick = () => {
     setCurrentCard((currentCard - 1 + data.length) % data.length);
-    // if (boxRef.current) {
-    //   boxRef.current.style.transform = "translateX(-100px)";
-    // }
   };
 
   const handleNumber = (number: number) => {
@@ -43,25 +38,38 @@ const Carousel = ({ data }: CarouselProps) => {
           handleNumber={() => handleNumber(-1)}
           number={-1}
           ref={boxRef}
+          isActive={false}
         />
         <Card
           data={data}
           handleNumber={() => handleNumber(0)}
           number={0}
           ref={boxRef}
+          isActive={true}
         />
         <Card
           data={data}
           handleNumber={() => handleNumber(1)}
           number={1}
           ref={boxRef}
+          isActive={false}
         />
       </div>
       <div className={style.button_container}>
-        <button onClick={handlePrevClick} className={style.carousel_button}>
+        <button
+          onClick={handlePrevClick}
+          className={`${
+            isDarkTheme ? style.carousel_button : style.carousel_button_dark
+          } `}
+        >
           Prev
         </button>
-        <button onClick={handleNextClick} className={style.carousel_button}>
+        <button
+          onClick={handleNextClick}
+          className={`${
+            isDarkTheme ? style.carousel_button : style.carousel_button_dark
+          } `}
+        >
           Next
         </button>
       </div>
